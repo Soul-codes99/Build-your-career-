@@ -1,0 +1,59 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile document stored in /users/{userId}",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "username": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "whatTheyDo": { "type": "string" },
+        "isAdmin": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "username", "email", "name"]
+    },
+    "Task": {
+      "title": "Daily Task",
+      "description": "Daily task document stored in /tasks/{taskId}",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "description": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "date", "description"]
+    },
+    "CheckIn": {
+      "title": "User CheckIn",
+      "description": "Daily checkin status stored in /checkins/{checkinId}",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "date": { "type": "string" },
+        "status": { "type": "string", "enum": ["done", "not_done"] },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "userId", "date", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile collection"
+    },
+    "/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/Task" },
+      "description": "Daily tasks collection"
+    },
+    "/checkins/{checkinId}": {
+      "schema": { "$ref": "#/entities/CheckIn" },
+      "description": "Checkins collection"
+    }
+  }
+}

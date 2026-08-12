@@ -1,0 +1,6 @@
+{
+  "name": "Build Your Career",
+  "description": "Accountability tracker for the Build Your Career group with daily tasks, check-ins, heatmaps, and admin controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
