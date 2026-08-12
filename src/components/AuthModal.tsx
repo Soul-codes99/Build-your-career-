@@ -62,17 +62,17 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onAuthSuccess }) => {
   };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center p-4 sm:p-6 bg-slate-50 dark:bg-slate-950">
-      <div className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none p-6 sm:p-8 space-y-6">
+    <div className="min-h-[85vh] flex items-center justify-center p-4 sm:p-6 bg-slate-50 dark:bg-black">
+      <div className="w-full max-w-md bg-white dark:bg-black border border-slate-200/80 dark:border-neutral-800 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none p-6 sm:p-8 space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
           <div className="inline-flex w-12 h-12 rounded-2xl bg-black dark:bg-white text-white dark:text-black items-center justify-center font-extrabold text-sm tracking-wider mb-2 shadow-sm">
             BYC
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             {isSignUp ? 'Join Build Your Career' : 'Welcome Back'}
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-neutral-400 font-normal">
             {isSignUp
               ? 'Create your account and start your daily streak.'
               : 'Sign in to check in and maintain your daily accountability.'}
@@ -80,10 +80,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onAuthSuccess }) => {
         </div>
 
         {/* Console Config Banner Notice */}
-        <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 p-3.5 rounded-2xl flex items-start space-x-2.5 text-xs text-slate-600 dark:text-slate-300">
-          <Info className="w-4 h-4 text-slate-900 dark:text-slate-100 shrink-0 mt-0.5" />
+        <div className="bg-slate-50 dark:bg-neutral-900 border border-slate-200/80 dark:border-neutral-800 p-3.5 rounded-2xl flex items-start space-x-2.5 text-xs text-slate-600 dark:text-neutral-300">
+          <Info className="w-4 h-4 text-slate-900 dark:text-white shrink-0 mt-0.5" />
           <div className="leading-relaxed">
-            Ensure <strong className="text-slate-900 dark:text-slate-100">Email/Password</strong> sign-in is enabled in your Firebase Console under Auth &gt; Sign-in method.
+            Ensure <strong className="text-slate-900 dark:text-white">Email/Password</strong> sign-in is enabled in your Firebase Console under Auth &gt; Sign-in method.
           </div>
         </div>
 
@@ -101,74 +101,74 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onAuthSuccess }) => {
             <>
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1.5">
                   Full Name
                 </label>
-                <div className="relative">
-                  <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                <div className="relative flex items-center">
+                  <User className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
                   <input
                     type="text"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Jane Doe"
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-slate-100"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-white"
                   />
                 </div>
               </div>
 
               {/* Unique Username */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1.5">
                   Unique Username
                 </label>
-                <div className="relative">
-                  <AtSign className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                <div className="relative flex items-center">
+                  <AtSign className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
                   <input
                     type="text"
                     required
                     value={username}
                     onChange={(e) => setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ''))}
                     placeholder="janedoe"
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-slate-100 font-mono"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-white font-mono"
                   />
                 </div>
-                <p className="text-[10px] text-slate-500 mt-1 pl-1">
+                <p className="text-[10px] text-slate-500 dark:text-neutral-400 mt-1 pl-1">
                   Unique handle (e.g. @janedoe) used for lookup by admin.
                 </p>
               </div>
 
               {/* Gmail Address */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1.5">
                   Gmail / Email Address
                 </label>
-                <div className="relative">
-                  <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                <div className="relative flex items-center">
+                  <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="jane@gmail.com"
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-slate-100"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-white"
                   />
                 </div>
               </div>
 
               {/* What You Do */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1.5">
                   What You Do (Short Bio)
                 </label>
-                <div className="relative">
-                  <Briefcase className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                <div className="relative flex items-center">
+                  <Briefcase className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
                   <input
                     type="text"
                     value={whatTheyDo}
                     onChange={(e) => setWhatTheyDo(e.target.value)}
                     placeholder="Software Engineer, Designer, Product Manager"
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-slate-100"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-white"
                   />
                 </div>
               </div>
@@ -176,18 +176,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onAuthSuccess }) => {
           ) : (
             /* Login Identifier Field */
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1.5">
                 Username or Gmail
               </label>
-              <div className="relative">
-                <AtSign className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+              <div className="relative flex items-center">
+                <AtSign className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
                 <input
                   type="text"
                   required
                   value={loginInput}
                   onChange={(e) => setLoginInput(e.target.value)}
                   placeholder="janedoe or jane@gmail.com"
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-slate-100"
+                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-white"
                 />
               </div>
             </div>
@@ -195,23 +195,23 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onAuthSuccess }) => {
 
           {/* Password Field with Eye Toggle */}
           <div>
-            <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1.5">
               Password
             </label>
-            <div className="relative">
-              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+            <div className="relative flex items-center">
+              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-11 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-slate-100"
+                className="w-full pl-10 pr-11 py-2.5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all text-slate-900 dark:text-white"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-2.5 p-1 text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 rounded-lg transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
+                className="absolute right-2 p-1 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg transition-colors flex items-center justify-center"
                 title={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -240,8 +240,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onAuthSuccess }) => {
         </form>
 
         {/* Toggle Mode Footer */}
-        <div className="pt-4 border-t border-slate-200/80 dark:border-slate-800 text-center">
-          <p className="text-xs text-slate-500">
+        <div className="pt-4 border-t border-slate-200/80 dark:border-neutral-800 text-center">
+          <p className="text-xs text-slate-500 dark:text-neutral-400">
             {isSignUp ? 'Already have an account?' : "Don't have an account yet?"}{' '}
             <button
               type="button"

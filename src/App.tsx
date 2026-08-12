@@ -28,6 +28,27 @@ export default function App() {
   // App navigation tab
   const [currentTab, setCurrentTab] = useState<NavTab>('task');
 
+  // Theme state (light / dark mode)
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('byc_theme');
+    if (saved === 'light' || saved === 'dark') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('byc_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
+
   // Shared application state
   const [todayTask, setTodayTask] = useState<DailyTask | null>(null);
   const [allTasks, setAllTasks] = useState<DailyTask[]>([]);
@@ -95,7 +116,7 @@ export default function App() {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex items-center justify-center font-sans">
+      <div className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white flex items-center justify-center font-sans">
         <div className="flex flex-col items-center space-y-3">
           <div className="w-10 h-10 rounded-2xl bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-extrabold text-xs tracking-wider shadow animate-pulse">
             BYC
@@ -109,12 +130,14 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased pb-24 md:pb-12 transition-colors">
+    <div className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white font-sans antialiased pb-24 md:pb-12 transition-colors">
       <Navbar
         currentTab={currentTab}
         onSelectTab={setCurrentTab}
         currentUser={currentUser}
         onSignOut={handleSignOut}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8">

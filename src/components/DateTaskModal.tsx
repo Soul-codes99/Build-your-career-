@@ -67,14 +67,14 @@ export const DateTaskModal: React.FC<DateTaskModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl w-full max-w-lg shadow-2xl p-6 sm:p-8 space-y-6 relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+      <div className="bg-white dark:bg-black border border-slate-200/80 dark:border-neutral-800 rounded-3xl w-full max-w-lg shadow-2xl p-6 sm:p-8 space-y-6 relative">
         {/* Back / Close button */}
-        <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-neutral-800">
           <button
             type="button"
             onClick={onClose}
-            className="flex items-center space-x-1.5 text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 transition-colors min-h-[44px]"
+            className="flex items-center space-x-1.5 text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors min-h-[44px]"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Calendar</span>
@@ -83,7 +83,7 @@ export const DateTaskModal: React.FC<DateTaskModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-full hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
             <X className="w-5 h-5" />
           </button>
@@ -92,10 +92,10 @@ export const DateTaskModal: React.FC<DateTaskModalProps> = ({
         {/* Date Header */}
         <div>
           <div className="flex items-center space-x-2 text-xs font-mono text-slate-500 mb-1">
-            <CalendarIcon className="w-3.5 h-3.5 text-slate-900 dark:text-slate-100" />
+            <CalendarIcon className="w-3.5 h-3.5 text-slate-900 dark:text-white" />
             <span>{isToday ? "Today's Task" : 'Historical Task'}</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-slate-100">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
             {formatDateDisplay(dateStr)}
           </h2>
         </div>
@@ -108,8 +108,8 @@ export const DateTaskModal: React.FC<DateTaskModalProps> = ({
           </div>
         ) : task ? (
           <div className="space-y-6">
-            <div className="p-5 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200/80 dark:border-slate-700/80">
-              <p className="text-base sm:text-lg font-medium text-slate-900 dark:text-slate-100 leading-relaxed">
+            <div className="p-5 bg-slate-50 dark:bg-neutral-900 rounded-2xl border border-slate-200/80 dark:border-neutral-800">
+              <p className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white leading-relaxed">
                 {task.description}
               </p>
             </div>
