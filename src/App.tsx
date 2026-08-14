@@ -203,12 +203,7 @@ export default function App() {
                   setTodayTask(task);
                   refreshAppData(currentUser.uid);
                 }}
-                onAdminTransferred={(newAdminUid) => {
-                  setCurrentUser({
-                    ...currentUser,
-                    isAdmin: false
-                  });
-                  setCurrentTab('task');
+                onAdminUpdated={() => {
                   refreshAppData(currentUser.uid);
                 }}
                 onSelectDate={(dateStr) => setSelectedModalDate(dateStr)}

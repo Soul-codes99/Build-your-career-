@@ -322,7 +322,40 @@ export async function updateUserProfile(
 }
 
 /**
- * Transfer Admin Status from current admin to new target user
+ * Grant Admin Status to target user without affecting other admins
+ */
+export async function grantAdminStatus(targetUid: string): Promise<void> {
+  try {
+    await updateDoc(doc(db, 'users', targetUid), { isAdmin: true });
+  } catch (err) {
+    handleFirestoreError(err, OperationType.UPDATE, `users/${targetUid}`);
+  }
+}
+
+/**
+ * Revoke Admin Status from target user
+ */
+export async function revokeAdminStatus(targetUid: string): Promise<void> {
+  try {
+    await updateDoc(doc(db, 'users', targetUid), { isAdmin: false });
+  } catch (err) {
+    handleFirestoreError(err, OperationType.UPDATE, `users/${targetUid}`);
+  }
+}
+
+/**
+ * Set Admin Status (true or false) for target user
+ */
+export async function setAdminStatus(targetUid: string, isAdmin: boolean): Promise<void> {
+  try {
+    await updateDoc(doc(db, 'users', targetUid), { isAdmin });
+  } catch (err) {
+    handleFirestoreError(err, OperationType.UPDATE, `users/${targetUid}`);
+  }
+}
+
+/**
+ * Transfer Admin Status from current admin to new target user (Legacy)
  */
 export async function transferAdminStatus(currentAdminUid: string, targetUid: string): Promise<void> {
   if (currentAdminUid === targetUid) return;
